@@ -1,23 +1,26 @@
 import React, { useState, useEffect } from "react";
-import { Wikipedia } from "../apis/Wikipedia";
+import { Wikipedia } from "../../apis/Wikipedia";
 
 export const ListItems = ({ searchQ }) => {
     const [response, setResponse] = useState([]);
     const [activeIndex, setActiveIndex] = useState(0);
+    const [debouncedTerm, setDebouncedTerm] = useState(searchQ);
     useEffect(() => {
         const query = async () => {
             let res = await Wikipedia.get("/api.php", {
                 params: {
-                    srsearch: searchQ,
+                    srsearch: debouncedTerm,
                 },
             });
-            console.log(res);
             setResponse(res.data.query.search);
         };
+        if (debouncedTerm) {
+            query();
+        }
+    }, [debouncedTerm]);
+    useEffect(() => {
         let time = setTimeout(() => {
-            if (searchQ) {
-                query();
-            }
+            setDebouncedTerm(searchQ);
         }, 1000);
         return () => {
             clearTimeout(time);
