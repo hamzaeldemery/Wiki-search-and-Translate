@@ -25,14 +25,16 @@ export const Dropdown = ({ data, selected, onSelectedChange }) => {
     };
 
     useEffect(() => {
-        document.addEventListener(
-            "click",
-            (event) => {
-                if (ref.current.contains(event.target)) return;
-                setVisible(false);
-            },
-            { capture: true }
-        );
+        const eventListenerFunc = (event) => {
+            if (ref.current.contains(event.target)) return;
+            setVisible(false);
+        };
+        document.addEventListener("click", eventListenerFunc, {
+            capture: true,
+        });
+        document.removeEventListener("click", eventListenerFunc, {
+            capture: true,
+        });
     }, []);
 
     return (
