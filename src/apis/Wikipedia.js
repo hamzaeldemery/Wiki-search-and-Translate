@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = "https://en.wikipedia.org/w/api.php";
+const baseURL = "https://en.wikipedia.org/w";
 
 export const Wikipedia = axios.create({
     baseURL,
@@ -8,5 +8,6 @@ export const Wikipedia = axios.create({
         action: "query",
         list: "search",
         format: "json",
+        origin: "*",
     },
 });

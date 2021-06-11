@@ -1,5 +1,6 @@
 import React from "react";
 import { Accordion } from "./Accordion";
+import { List } from "./List";
 
 const list = [
     {
@@ -20,7 +21,12 @@ export const App = () => {
     return (
         <div className="App">
             <br />
-            <Accordion list={list} />
+            <div>
+                <Accordion list={list} />
+            </div>
+            <div>
+                <List />
+            </div>
         </div>
     );
 };
