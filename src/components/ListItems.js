@@ -5,15 +5,23 @@ export const ListItems = ({ searchQ }) => {
     const [response, setResponse] = useState([]);
     const [activeIndex, setActiveIndex] = useState(0);
     useEffect(() => {
-        if (searchQ) {
-            Wikipedia.get("/api.php", {
+        const query = async () => {
+            let res = await Wikipedia.get("/api.php", {
                 params: {
                     srsearch: searchQ,
                 },
-            }).then((response) => {
-                setResponse(response.data.query.search);
             });
-        }
+            console.log(res);
+            setResponse(res.data.query.search);
+        };
+        let time = setTimeout(() => {
+            if (searchQ) {
+                query();
+            }
+        }, 1000);
+        return () => {
+            clearTimeout(time);
+        };
     }, [searchQ]);
     let renderedList = response.map((item, idx) => {
         const active = idx === activeIndex ? "active" : "";

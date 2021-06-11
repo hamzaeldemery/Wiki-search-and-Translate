@@ -5,6 +5,7 @@ export const SearchBar = (props) => {
     const [input, setInput] = useState("");
     const onInputChange = (e) => {
         setInput(e.target.value);
+        props.onSubmit(e.target.value);
     };
 
     const formOnSubmit = (e) => {
