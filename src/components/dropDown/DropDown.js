@@ -10,13 +10,13 @@ export const Dropdown = ({ data, selected, onSelectedChange }) => {
                 className="item"
                 data-value={item.value}
                 key={item.value}
-                onClick={(e) => onSelectItem(e, item)}
+                onClick={(e) => onSelectItem(item)}
             >
                 {item.description}
             </div>
         );
     });
-    const onSelectItem = (e, item) => {
+    const onSelectItem = (item) => {
         onSelectedChange(item);
     };
     const hideShowMenu = (e) => {
@@ -32,11 +32,12 @@ export const Dropdown = ({ data, selected, onSelectedChange }) => {
         document.addEventListener("click", eventListenerFunc, {
             capture: true,
         });
-        document.removeEventListener("click", eventListenerFunc, {
-            capture: true,
-        });
+        return () => {
+            document.removeEventListener("click", eventListenerFunc, {
+                capture: true,
+            });
+        };
     }, []);
-
     return (
         <div ref={ref} className="ui form">
             <div className="field">

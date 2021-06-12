@@ -8,7 +8,7 @@ export const List = () => {
         setInput(text);
     };
     return (
-        <div className="ui two column  grid" style={{ paddingLeft: "20px" }}>
+        <div className="ui two column centered  grid">
             <div className="row">
                 <div className="column">
                     <SearchBar onSubmit={onSubmit} />
