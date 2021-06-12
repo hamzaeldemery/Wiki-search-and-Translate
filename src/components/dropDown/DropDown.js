@@ -40,6 +40,7 @@ export const Dropdown = ({ data, selected, onSelectedChange }) => {
     return (
         <div ref={ref} className="ui form">
             <div className="field">
+                <label>{data.title}</label>
                 <div
                     onClick={(e) => hideShowMenu(e)}
                     className={`ui selection dropdown ${

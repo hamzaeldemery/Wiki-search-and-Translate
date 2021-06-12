@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Accordion } from "./accordion/Accordion";
 import { List } from "./wikiList/List";
 import { Dropdown } from "./dropDown/DropDown";
+import { Translate } from "./tranlate/Translate";
 
 const list = [
     {
@@ -45,15 +46,21 @@ export const App = () => {
             <div>
                 <Accordion list={list} />
             </div>
+            <br />
             <div>
                 <List />
             </div>
+            <br />
             <div>
                 <Dropdown
                     selected={selected}
                     onSelectedChange={setSelected}
                     data={dropdownData}
                 />
+            </div>
+            <br />
+            <div>
+                <Translate />
             </div>
         </div>
     );
