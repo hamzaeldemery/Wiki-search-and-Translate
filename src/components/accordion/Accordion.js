@@ -22,5 +22,9 @@ export const Accordion = ({ list }) => {
         );
     });
 
-    return <div className="ui styled accordion">{renderedList}</div>;
+    return (
+        <div className="ui styled accordion" style={{ margin: "5%" }}>
+            {renderedList}
+        </div>
+    );
 };

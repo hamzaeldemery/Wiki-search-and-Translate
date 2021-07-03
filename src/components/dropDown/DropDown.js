@@ -39,7 +39,7 @@ export const Dropdown = ({ data, selected, onSelectedChange }) => {
         };
     }, []);
     return (
-        <div ref={ref} className="ui form">
+        <div ref={ref} className="ui form" style={{ margin: "5%" }}>
             <div className="field">
                 <label>{data.title}</label>
                 <div

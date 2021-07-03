@@ -33,7 +33,7 @@ const TranslateWiki = (props) => {
         setInput(text);
     };
     return (
-        <div className="ui two column centered  grid">
+        <div className="ui two column centered  grid" style={{ margin: "5%" }}>
             <div className="row">
                 <div className="column">
                     <SearchBar onSubmit={onSubmit} />

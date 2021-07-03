@@ -28,7 +28,7 @@ export const Translate = (props) => {
         setInput(e.target.value);
     };
     return (
-        <div>
+        <div style={{ margin: "5%" }}>
             <div className="ui form">
                 <div className="ui field">
                     <label>Enter text</label>

@@ -25,7 +25,6 @@ export const ListItem = ({
                         },
                     }
                 );
-                console.log(res);
                 setTranslated(res.data.data.translations[0].translatedText);
             } catch (error) {
                 setTranslated("Error Occured, not able to translate!");
